@@ -13,11 +13,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Clicker />
-        <Test />
+        <h3>현재시간</h3>
       </header>
 
-      <UserList />
       
     </div>
   );
