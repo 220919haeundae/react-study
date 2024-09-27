@@ -1,3 +1,5 @@
+
+import { useRef } from "react";
 import styled from "styled-components";
 
 const ListContainer = styled.ul`
@@ -14,17 +16,30 @@ const TodoItem = styled.li`
     justify-content: center;
 `
 
-export default function TodoList({list}) {
-    return (
+export default function TodoList({list, setList}) {
 
+    function deleteTodo(idx) {
+        setList(list.filter(function(element, index) {
+            return index !== idx;
+        }))
+    }
+    
+    const todoRef = useRef(null);
+
+    function completeTodo() {
+        
+        const origin = todoRef.current.innerText;
+        const change = origin + '(완료)';
+        todoRef.current.innerHtml += change;
+    }
+
+    return (
         <ListContainer>
-            
             {
                 list.map((todo, index) => 
-                    <TodoItem key={'todo'+index}>{todo}</TodoItem>
+                    <TodoItem key={'todo'+index} onClick={completeTodo} ref={todoRef}>{todo}<button onClick={() => deleteTodo(index)}>X</button></TodoItem>
                 )
             }
-            
         </ListContainer>
     );
 }
