@@ -35,13 +35,13 @@ const InsertContainer = styled.div`
 const InsertItem = (props) => {
     const [todoItem, setTodoItem] = useState('');
     const addTodo = () => {
-        props.addItem(todoItem);
+        props.addItem({item: todoItem, complete: false});
         setTodoItem('');
     }
 
     return (
     <InsertContainer>
-        <InsertInput value={todoItem} placeholer="할일 입력" onChange={(e) => {setTodoItem(e.target.value);}}></InsertInput>
+        <InsertInput value={todoItem} placeholder="할일 입력" onChange={(e) => {setTodoItem(e.target.value);}}></InsertInput>
         <InsertBtn onClick={addTodo}>
             <IoAddCircleOutline />
         </InsertBtn>

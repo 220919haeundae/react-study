@@ -40,9 +40,9 @@ function UserList() {
     const registUser = () => {
         // alert(name + ", " + age + ", " + gender + ", " + phone);
         const newUser = {name: name, age: age, gender: gender, phone: phone};
-        list.push(newUser);
+        
 
-        setList([...list]); // 전개 연산자 : 새로운 배열로 복사
+        setList([...list, newUser]); // 전개 연산자 : 새로운 배열로 복사
 
         // 입력창 부분을 초기화
         setName('');
