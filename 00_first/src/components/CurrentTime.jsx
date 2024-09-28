@@ -3,23 +3,20 @@ import { useEffect, useState } from "react";
 function CurrentTime() {
     const [currTime, setCurrTime] = useState(new Date());
 
-    useEffect(() => {
-        const timer = setInterval(()=> {
-            setCurrTime(new Date);
-        }, 1*1000);
+      const formatTime = currTime.toLocaleTimeString('ko-KR', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
 
-        return () => clearInterval(timer);
-    }, [currTime])
-
-    const day = currTime.toLocaleTimeString('ko-KR');
+      useEffect(() => {
+        setInterval(setCurrTime(new Date()), 1000)
+      }, [])
 
     return (
-        
-
-            <div>
-                {day}
-            </div>
-        
+        <div>
+            <p>{formatTime}</p>
+        </div>
         
     );
 }

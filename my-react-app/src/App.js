@@ -7,6 +7,9 @@ import FuncComp from './pages/FuncComp.jsx';
 import UseStateHook from './pages/hook/UseStateHook.jsx';
 import UseEffectHook from './pages/hook/UseEffectHook.jsx';
 import UseRefHook from './pages/hook/UseRefHook.jsx';
+import UseContextHook from './pages/hook/useContext/UseContextHook.jsx';
+import UseMemoHook from './pages/hook/useMemo/UseMemoHook.jsx';
+import UseCallbackHook from './pages/hook/useCallback/UseCallbackHook.jsx';
 
 // BrowserRouter as Router => Router라는 이름으로 사용 가능!
 
@@ -45,6 +48,9 @@ function App() {
           <Route path="/us" element={<UseStateHook/>}/>
           <Route path="/ue" element={<UseEffectHook/>}/>
           <Route path="/ur" element={<UseRefHook/>}/>
+          <Route path="/uc" element={<UseContextHook/>}/>
+          <Route path="/um" element={<UseMemoHook/>}/>
+          <Route path="/ucb" element={<UseCallbackHook/>}/>
         </Routes>
       </main>
       <footer>

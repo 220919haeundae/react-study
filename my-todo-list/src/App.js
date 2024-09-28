@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import MyContainer from './components/MyContainer';
 import InsertItem from './components/insertItem';
@@ -14,6 +13,9 @@ function App() {
     newList.push(item);
     setList(newList);
   }
+
+
+
   return (
     <div className="App">
       <MyContainer title="My TodoList">

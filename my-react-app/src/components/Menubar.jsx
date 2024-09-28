@@ -17,15 +17,25 @@ const MyLink = styled(Link)`
 
 `
 
+const navStyle = {
+    display: 'flex',
+    flexWrap: 'wrap'
+}
+
 function Menubar() {
     return (
-        <nav>
+        <nav style={navStyle}>
           <MyLink to ="/">Home</MyLink>
+
           <MyLink to ="/cc">Class Component</MyLink>
           <MyLink to ="/fc">Functional Component</MyLink>
+
           <MyLink to ="/us">useState</MyLink>
           <MyLink to ="/ue">useEffect</MyLink>
           <MyLink to ="/ur">useRef</MyLink>
+          <MyLink to ="/uc">UseContext</MyLink>
+          <MyLink to ="/um">UseMemo</MyLink>
+          <MyLink to ="/ucb">UseCallback</MyLink>
         </nav>
     )
 }

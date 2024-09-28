@@ -1,39 +1,65 @@
 import { useEffect, useState } from 'react';
+import {Link} from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import './App.css';
-
+import Timer from './component/Timer';
+import Counter from './component/Counter';
+import styled from 'styled-components';
+const Body = styled.div`
+width: 1000px;
+height: 500px;
+border: 1px solid black;
+`
 
 function App() {
-  const [day, setDay] = useState(new Date());
+
+
+  const [timer, setTimer] = useState(true);
+  const [count, setCount] = useState(false);
 
   useEffect(() => {
-    // 1초마다 시간에 대한 정보를 업데이트
-    setInterval(() => {
-      setDay(new Date())
-    }, 1000);
-  }, []);
+    if(timer === true) {
+      setCount(false);
+      
+    }
 
-  const formatDate = day.toLocaleDateString('ko-KR', {
-    year: '2-digit',
-    month: '2-digit',
-    day: '2-digit'
-  });
-  const formatTime = day.toLocaleTimeString('ko-KR', {
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit'
-  });
+    if(setCount === true) {
+      setTimer(false);
+    }
+  }, [timer, count])
+
 
   
 
   return (
+    <BrowserRouter>
     <div className="App">
       <header className="App-header">
-        <h1>현재시간</h1>
-        <p>{ formatDate }</p>
-        <p>{ formatTime }</p>
+      
+
+
       </header>
+      <nav style={{backgroundColor: 'teal'}}>
+      <Link to ="/timer">타이머</Link>
+      <Link to ="/counter">글자 수 세기</Link>
+      </nav>
+      <button onCick={()=> setTimer(true)}>타이머</button>
+      <button onClick={() => setCount(true)}>글자 수 세기</button>
+      <div>
+  
+      <Body>
+      <Routes>
+      
+        <Route path="/timer" element={<Timer/>}/>
+        <Route path="/counter" element={<Counter/>}/>
+      
+      </Routes>
+      </Body>
+      </div>
     </div>
+    </BrowserRouter>
   );
+  
 }
 
 export default App;

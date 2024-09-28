@@ -1,7 +1,6 @@
 
 import './App.css';
 import CurrentTime from './components/CurrentTime';
-import UserList from './components/UserList';
 
 
 function App() {
@@ -9,9 +8,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h3>현재시간</h3>
+        <Test/>
         <CurrentTime/>
       </header>
-      <UserList/>
       
     </div>
   );
