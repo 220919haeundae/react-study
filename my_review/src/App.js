@@ -5,13 +5,27 @@ import './App.css';
 import Timer from './component/Timer';
 import Counter from './component/Counter';
 import styled from 'styled-components';
+import Home from './component/Home';
+import { createContext } from 'react';
 const Body = styled.div`
 width: 1000px;
 height: 500px;
 border: 1px solid black;
+margin: auto;
 `
 
+export const UserContext = createContext();
+let defaultUser = {
+  id: '',
+  pwd: ''
+}
+
 function App() {
+  const [user, setUser] = useState(defaultUser);
+  const defaultContext = {
+    data: user,
+    setData: setUser
+  }
 
 
   const [timer, setTimer] = useState(true);
@@ -29,6 +43,9 @@ function App() {
   }, [timer, count])
 
 
+
+  
+
   
 
   return (
@@ -40,20 +57,21 @@ function App() {
 
       </header>
       <nav style={{backgroundColor: 'teal'}}>
+      <Link to ="/home">HOME</Link>  
       <Link to ="/timer">타이머</Link>
       <Link to ="/counter">글자 수 세기</Link>
       </nav>
-      <button onCick={()=> setTimer(true)}>타이머</button>
-      <button onClick={() => setCount(true)}>글자 수 세기</button>
       <div>
   
       <Body>
+        <UserContext.Provider value={defaultContext}>
       <Routes>
-      
+        <Route path="/home" element={<Home/>}/>
         <Route path="/timer" element={<Timer/>}/>
         <Route path="/counter" element={<Counter/>}/>
       
       </Routes>
+      </UserContext.Provider>
       </Body>
       </div>
     </div>

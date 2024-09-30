@@ -16,7 +16,6 @@ const TodoItem = styled.li`
     justify-content: center;
 `
 
-<<<<<<< HEAD
 // export default function TodoList({list, setList}) {
     
 //     const [isCompleted, setIsCompleted] = useState([]);
@@ -61,39 +60,18 @@ export default function TodoList({list, setList}) {
         const newList = [...list];
         newList[index].complete = !newList[index].complete;
         setList(newList);
-=======
-export default function TodoList({list, setList}) {
-
-    function deleteTodo(idx) {
-        setList(list.filter(function(element, index) {
-            return index !== idx;
-        }))
-    }
-    
-    const todoRef = useRef(null);
-
-    function completeTodo() {
-        
-        const origin = todoRef.current.innerText;
-        const change = origin + '(완료)';
-        todoRef.current.innerHtml += change;
->>>>>>> e980508e91eef805b9ffa3d8e63beccfecd0174f
     }
 
     return (
         <ListContainer>
             {
                 list.map((todo, index) => 
-<<<<<<< HEAD
                     <TodoItem key={'todo'+index} style ={{textDecoration: todo.complete ? 'line-through' : 'none'}} onClick={() => completeTodo(index)}>
                         {todo.item}
                         <button onClick={(e) => { e.stopPropagation(); deleteTodo(index); }}>
                             X
                         </button>
                     </TodoItem>
-=======
-                    <TodoItem key={'todo'+index} onClick={completeTodo} ref={todoRef}>{todo}<button onClick={() => deleteTodo(index)}>X</button></TodoItem>
->>>>>>> e980508e91eef805b9ffa3d8e63beccfecd0174f
                 )
             }
         </ListContainer>
