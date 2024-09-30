@@ -10,12 +10,16 @@ export const Practice2 = () => {
         const data = (await test5()).data.msg;
         
 
-        if(!(list.length == data.length+1)) {
-            for(let i = 0; i < data.length; i++) {
-                list.push(data[i]);
+        
+        for(let i = 0; i < data.length; i++) {
+            for(let j = 0; j <list.length; j++) {
+                if(data[i].name !== list[j].name) {
+                    list.push(data[i]);
+                }
             }
-            setList([...list]);
         }
+        setList([...list]);
+        
         
         
     }

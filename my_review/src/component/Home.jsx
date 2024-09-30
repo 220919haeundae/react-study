@@ -19,7 +19,8 @@ export default function Home() {
                 :
                 <div>
                 <p> {user.id}님 반값습니다^^</p>
-                <input type="button" value="로그아웃" onClick={userCtx.setData({id: '', pwd: ''})}/> 
+                <br/>
+                <input type="button" value="로그아웃" onClick={() => userCtx.setData({id: '', pwd: ''})}/> 
                 </div>
             }
             

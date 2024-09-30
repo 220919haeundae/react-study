@@ -21,7 +21,8 @@ export default function Login() {
             <br/>
             <input type="password" value={pwd} onChange={
                 (e) => {setPwd(e.target.value)}
-            }/><br/>
+            }/>
+            <br/>
             <input type="button" value="로그인" onClick={handlerLogin} />
         </div>
     )
