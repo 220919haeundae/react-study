@@ -7,6 +7,7 @@ import Counter from './component/Counter';
 import styled from 'styled-components';
 import Home from './component/Home';
 import { createContext } from 'react';
+import Stopwatch from './component/Stopwatch';
 const Body = styled.div`
 width: 1000px;
 height: 500px;
@@ -19,6 +20,8 @@ let defaultUser = {
   id: '',
   pwd: ''
 }
+
+
 
 function App() {
   const [user, setUser] = useState(defaultUser);
@@ -60,6 +63,7 @@ function App() {
       <Link to ="/home">HOME</Link>  
       <Link to ="/timer">타이머</Link>
       <Link to ="/counter">글자 수 세기</Link>
+      <Link to ="/stopwatch">Stopwatch</Link>
       </nav>
       <div>
   
@@ -69,6 +73,7 @@ function App() {
         <Route path="/home" element={<Home/>}/>
         <Route path="/timer" element={<Timer/>}/>
         <Route path="/counter" element={<Counter/>}/>
+        <Route path="/stopwatch" element={<Stopwatch/>}/>
       
       </Routes>
       </UserContext.Provider>
