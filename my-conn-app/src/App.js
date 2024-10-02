@@ -13,7 +13,7 @@ function App() {
         <nav>
           <Link to="/">HOME</Link> |&nbsp;
           <Link to="/pt1">연습</Link> |&nbsp;
-          <Link to="/pt2">연습2</Link>
+          <Link to="/pt2">연습2</Link> |&nbsp;
           <Link to="/chatbot">chatbot</Link>
         </nav>
       </header>
